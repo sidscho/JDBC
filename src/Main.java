@@ -16,18 +16,16 @@ public class Main {
             con = DriverManager.getConnection(DB_URL, username, password);
             st=con.createStatement();
             sql = "Select * from student";
+            String sql2 = "update student set name='Jitesh' where id=1 ";
             rs = st.executeQuery(sql);
-            while(rs.next()){
+           while(rs.next()){
                 System.out.println(rs.getString(2) + rs.getInt(1));
             }
+           st.execute(sql2);
+
         } catch (Exception e) {
             System.out.println(e);
            // throw new RuntimeException(e);
         }
-        finally {
-
-
-        }
-
         }
     }
